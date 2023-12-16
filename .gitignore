@@ -1,160 +1,70 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# 회원 가입
+class User:
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = password
 
-# C extensions
-*.so
+    def sign_up(self):
+        print(f"{self.username} 회원 가입을 진행합니다.")
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+user = User("OurPreciousLife", "OurPreciousLife@gmail.com", "OurPreciousLife1234")
+user.sign_up()
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# 선호 콘텐츠 조사 
+def content_preference_survey():
+    print("선호하시는 콘텐츠를 선택해 주세요.")
+    print("1. 시")
+    print("2. 소설")
+    print("3. 드라마")
+    print("4. 영화")
+    print("5. 노래")
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+content_preference_survey()
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+# 모든(시,소설,드라마,영화,노래) 콘텐츠를 선호하는 것을 예시로 합니다.
 
-# Translations
-*.mo
-*.pot
+# 감정 세부 작성 
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# 여기서부터는 추후 일기 내용 활용 또는 저장 등을 추가할 수 있습니다.
 
-# Flask stuff:
-instance/
-.webassets-cache
+# 사용자 감정 분석하기 
+def user_emotion_survey():
+    print("오늘 당신의 기분은?")
+    print("1. 즐거움")
+    print("2. 기쁨")
+    print("3. 지루함")
+    print("4. 화남")
+    print("5. 우울함")
 
-# Scrapy stuff:
-.scrapy
+    choice = input("번호를 선택하세요: ")
+    emotions = ["즐거움", "기쁨", "지루함", "화남", "우울함"]
 
-# Sphinx documentation
-docs/_build/
+    try:
+        selected_emotion = emotions[int(choice) - 1]
+        return selected_emotion
+    except (ValueError, IndexError):
+        print("올바른 번호를 선택하세요.")
+        return None
 
-# PyBuilder
-.pybuilder/
-target/
+def write_diary_entry():
+    print("\n오늘의 하루를 기록해보세요:")
+    diary_entry = input("일기 내용을 입력하세요: ")
+    return diary_entry
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# 감정별 추천 콘텐츠 목록 정의
+import random
 
-# IPython
-profile_default/
-ipython_config.py
+# 감정별 추천 콘텐츠 목록 정의
+def recommend_content(emotion):
+    recommendations = {
+        "즐거움": ["시1", "소설1", "드라마1", "영화1", "노래1"],
+        "기쁨": ["시2", "소설2", "드라마2", "영화2", "노래2"],
+        "지루함": ["시3", "소설3", "드라마3", "영화3", "노래3"],
+        "화남": ["시4", "소설4", "드라마4", "영화4", "노래4"],
+        "우울함": ["시5", "소설5", "드라마5", "영화5", "노래5"]
+    }
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+    return recommendations[emotion]
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+print(recommend_content("기쁨"))
